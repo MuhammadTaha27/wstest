@@ -53,6 +53,7 @@
         const ws = new WebSocket(`${protocol}://${location.host}`);
         console.log(protocol);
         console.log(location.host);
+        console.log(location.port);
 
         ws.onmessage = function(event) {
           const data = JSON.parse(event.data);
