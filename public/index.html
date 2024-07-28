@@ -51,8 +51,8 @@
         // will not use tls if the connection is not made over https
         const protocol = window.location.protocol.includes('https') ? 'wss': 'ws'
         const ws = new WebSocket(`${protocol}://${location.host}`);
-        console.log('${protocol}://${location.host}');
-
+        console.log(protocol);
+        console.log(location.host);
 
         ws.onmessage = function(event) {
           const data = JSON.parse(event.data);
