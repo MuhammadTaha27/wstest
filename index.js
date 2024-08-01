@@ -12,6 +12,9 @@ app.use(express.static(path.join(__dirname, '/public')));
 const server = createServer(app);
 const wss = new WebSocket.Server({ server });
 
+let connectedClients = [];
+let audioStream = [];
+
 wss.on('connection', function (ws) {
   console.log("Connected");
   connectedClients.push(ws);
@@ -25,7 +28,6 @@ wss.on('connection', function (ws) {
       }
     });
   });
-
   ws.on('close', function () {
     console.log('stopping client interval');
     clearInterval(id);
