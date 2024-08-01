@@ -28,9 +28,9 @@ wss.on('connection', function (ws) {
       }
     });
   });
-  ws.on('close', function () {
-    console.log('stopping client interval');
-    clearInterval(id);
+  ws.on("close", () => {
+    console.log("Closing Client");
+    audioStream.push(null); // Signal the end of the stream
   });
 });
 
