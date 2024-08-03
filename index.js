@@ -21,11 +21,8 @@ wss.on('connection', function (ws) {
   ws.on("message", (data) => {
     audioStream.push(data);
     connectedClients.forEach((client, i) => {
-      if (client.readyState === WebSocket.OPEN) {
         client.send(data);
-      } else {
-        connectedClients.splice(i, 1);
-      }
+
     });
   });
   ws.on("close", () => {
