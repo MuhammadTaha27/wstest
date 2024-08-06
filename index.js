@@ -31,6 +31,6 @@ wss.on('connection', function (ws) {
   });
 });
 
-server.listen(80, function () {
+server.listen(8080, function () {
   console.log('Listening on http://0.0.0.0:8080');
 });
